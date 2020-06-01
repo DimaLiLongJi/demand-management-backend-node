@@ -1,0 +1,24 @@
+{
+  "port": 4005,
+  "loginRedirectUrl": "http://localhost:4200/demand-manager/pages/manager/login",
+  "jwtSecret": "1AGy4bCUoECDZ4yI6h8DxHDwgj84EqStMNyab8nPChQ=",
+  "database": {
+    "host": "localhost",
+    "port": 3306,
+    "username": "dev",
+    "password": "tk123456",
+    "database": "demand"
+  },
+  "email": {
+    "host": "smtp.163.com",
+    "port": 465,
+    "secure": true,
+    "auth": {
+      "user": "cm_hl_email@163.com",
+      "pass": "IXESLHSMVGPXVVAO"
+    },
+    "debug": true,
+    "logger": true
+  },
+  "contentUrl": "http://localhost:4200/demand-manager/pages/home/self-demand-list?demandId="
+}

@@ -1,0 +1,6 @@
+{
+  "script": "src/main.js",
+  "watch": true,
+  "ignore_watch": ["node_modules", "static"],
+  "name": "需求管理平台"
+}
