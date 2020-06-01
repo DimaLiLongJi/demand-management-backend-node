@@ -1,6 +1,6 @@
 {
   "port": 9080,
-  "loginRedirectUrl": "https://wxxcs.hl139.net/demand-manager/pages/manager/login",
+  "loginRedirectUrl": "https://localhost:4200/demand-manager/pages/manager/login",
   "jwtSecret": "1AGy4bCUoECDZ4yI6h8DxHDwgj84EqStMNyab8nPChQ=",
   "database": {
     "host": "localhost",
@@ -20,5 +20,5 @@
     "debug": true,
     "logger": true
   },
-  "contentUrl": "http://localhost:4007/hlj/global/demand-manager/pages/home/self-demand-list?demandId="
+  "contentUrl": "http://localhost:9080/hlj/global/demand-manager/pages/home/self-demand-list?demandId="
 }
