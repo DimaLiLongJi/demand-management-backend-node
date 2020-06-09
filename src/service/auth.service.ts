@@ -110,6 +110,9 @@ export class AuthService {
    * @memberof AuthService
    */
   private async validateUser(payload: IAuthPayload): Promise<UserEntity> {
-    return await this.userDAO.findByMobileOrEmail(payload);
+    return await this.userDAO.findByMobileOrEmail({
+      email: payload.email,
+      mobile: payload.mobile,
+    });
   }
 }

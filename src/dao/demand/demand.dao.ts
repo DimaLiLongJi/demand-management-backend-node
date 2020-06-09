@@ -103,6 +103,7 @@ export class DemandDAO {
   }
 
   public find(where?: IDemandSearch): Promise<[DemandEntity[], number]> {
+    console.log(33333333, where);
     const skip = (where.pageIndex - 1) * where.pageSize;
 
     let res = this.demandRepository.createQueryBuilder('demand')
@@ -127,9 +128,12 @@ export class DemandDAO {
     if (where.devops) res = res.innerJoinAndSelect('demand.devopsList', 'devops', 'devops.id = :devopsId');
     else res = res.leftJoinAndSelect('demand.devopsList', 'devops');
     // 审核人
-    if (where.approver) res = res.innerJoinAndSelect('approver', 'approver', 'demand.demandTypeId = approver.demandTypeId AND demand.demandStatusId = approver.demandStatusId AND approver.userId = :approverId');
+    if (where.approver) {
+      res = res.innerJoinAndSelect('approver', 'approver', 'demand.demandTypeId = approver.demandTypeId AND demand.demandStatusId = approver.demandStatusId AND approver.userId = :approverId')
+            // 审核人，必须为 isPending 2;
+            .andWhere('demand.isPending = 2');
+    }
 
-    res = res.where({ 1: 1 });
     if (where.keyword) res = res.andWhere('demand.name LIKE :keyword')
       .orWhere('demand.detail LIKE :keyword');
     // 是否归档
@@ -159,8 +163,6 @@ export class DemandDAO {
       if (where.timeout === '4') res = res.andWhere('demand.finish_date IS NOT NULL');
       else res = res.andWhere('demand.finish_date IS NULL');
     }
-    // 审核人，必须为 isPending 2;
-    if (where.approver) res = res.andWhere('demand.isPending = 2');
 
     res = res.setParameters({
       keyword: `%${where.keyword}%`,

@@ -2,7 +2,7 @@ import { Injectable, NestMiddleware } from '@nestjs/common';
 import { Request, Response } from 'express';
 import { AuthService } from '../service/auth.service';
 import { EnvService } from '../service/env.service';
-import { freeAuthPathReg } from '../constant/freeauth';
+import { freeAuthPathReg } from '../constant/free-auth';
 import { UserEntity } from '../dao/user/user.entity';
 
 @Injectable()
