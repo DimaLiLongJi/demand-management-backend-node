@@ -157,11 +157,10 @@ export class DemandDAO {
     if (where.scheduleEndToDate) res = res.andWhere('TO_DAYS(demand.schedule_end_date) <= TO_DAYS(:scheduleEndToDate)');
     // 筛选过期状态
     if (where.timeout) {
-      if (where.timeout === '1') res = res.andWhere('TO_DAYS(demand.schedule_end_date) > TO_DAYS(NOW())');
-      if (where.timeout === '2') res = res.andWhere('TO_DAYS(demand.schedule_end_date) = TO_DAYS(NOW())');
-      if (where.timeout === '3') res = res.andWhere('TO_DAYS(demand.schedule_end_date) < TO_DAYS(NOW())');
+      if (where.timeout === '1') res = res.andWhere('TO_DAYS(demand.schedule_end_date) > TO_DAYS(NOW())').andWhere('demand.finish_date IS NULL');
+      if (where.timeout === '2') res = res.andWhere('TO_DAYS(demand.schedule_end_date) = TO_DAYS(NOW())').andWhere('demand.finish_date IS NULL');
+      if (where.timeout === '3') res = res.andWhere('TO_DAYS(demand.schedule_end_date) < TO_DAYS(NOW())').andWhere('demand.finish_date IS NULL');
       if (where.timeout === '4') res = res.andWhere('demand.finish_date IS NOT NULL');
-      else res = res.andWhere('demand.finish_date IS NULL');
     }
 
     res = res.setParameters({
