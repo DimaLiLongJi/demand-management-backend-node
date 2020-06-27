@@ -10,3 +10,4 @@ export * from './demand-progress';
 export * from './demand-log';
 export * from './file';
 export * from './demand-node';
+export * from './demand-type-stataus-index';

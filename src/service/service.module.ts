@@ -16,6 +16,7 @@ import { EmailService } from './email.service';
 import { FileService } from './file.service';
 import { DemandNodeService } from './demand-node.service';
 import { ApproverService } from './approver.service';
+import { DemandTypeStatusIndexService } from './demand-type-status-index';
 
 const serviceList = [
   EnvService,
@@ -34,6 +35,7 @@ const serviceList = [
   FileService,
   DemandNodeService,
   ApproverService,
+  DemandTypeStatusIndexService,
 ];
 
 const envService = new EnvService();

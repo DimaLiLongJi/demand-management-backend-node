@@ -15,6 +15,7 @@ import { DemandProgressController } from './demand-progress.controller';
 import { DemandLogontroller } from './demand-log.controller';
 import { DemandNodeController } from './demand-node.controller';
 import { ApproverController } from './approver.controller';
+import { DemandTypeStatusIndexDAOController } from './demand-type-stataus-index.controller';
 
 @Module({
   controllers: [
@@ -30,6 +31,7 @@ import { ApproverController } from './approver.controller';
     DemandLogontroller,
     DemandNodeController,
     ApproverController,
+    DemandTypeStatusIndexDAOController,
   ],
 })
 export class ApiModule {

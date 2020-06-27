@@ -10,8 +10,8 @@ export class DemandNodeDAO {
     private readonly demandNodeRepository: Repository<DemandNodeEntity>,
   ) {}
 
-  public async save(demandTyoe: DemandNodeEntity): Promise<DemandNodeEntity> {
-    return this.demandNodeRepository.save(demandTyoe);
+  public async save(demandType: DemandNodeEntity): Promise<DemandNodeEntity> {
+    return this.demandNodeRepository.save(demandType);
   }
 
   public async delete(id: number): Promise<DeleteResult> {

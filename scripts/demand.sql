@@ -448,4 +448,20 @@ INSERT INTO `user_permission` VALUES (1, 14);
 INSERT INTO `user_permission` VALUES (1, 15);
 COMMIT;
 
+-- ----------------------------
+-- Table structure for demand_type_stataus_index
+-- ----------------------------
+DROP TABLE IF EXISTS `demand_type_stataus_index`;
+CREATE TABLE `demand_type_stataus_index` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `statusIndex` int(11) NOT NULL,
+  `demandTypeId` int(11) NOT NULL,
+  `demandStatusId` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_008a9fbd4b568a218f84fd5b4a1` (`demandTypeId`),
+  KEY `FK_6d5cc646dabf08fb10b4918e32d` (`demandStatusId`),
+  CONSTRAINT `FK_008a9fbd4b568a218f84fd5b4a1` FOREIGN KEY (`demandTypeId`) REFERENCES `demand_type` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_6d5cc646dabf08fb10b4918e32d` FOREIGN KEY (`demandStatusId`) REFERENCES `demand_status` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
 SET FOREIGN_KEY_CHECKS = 1;

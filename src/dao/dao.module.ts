@@ -13,6 +13,7 @@ import { DemandLogEntity } from './demand-log/demand-log.entity';
 import { FileEntity } from './file/file.entity';
 import { DemandNodeEntity } from './demand-node/demand-node.entity';
 import { ApproverEntity } from './approver/approver.entity';
+import { DemandTypeStatusIndexEntity } from './demand-type-stataus-index/demand-type-stataus-index.entity';
 
 import { UserDAO } from './user/user.dao';
 import { ModuleDAO } from './module/module.dao';
@@ -26,6 +27,7 @@ import { DemandLogDAO } from './demand-log/demand-log.dao';
 import { FileDAO } from './file/file.dao';
 import { DemandNodeDAO } from './demand-node/demand-node.dao';
 import { ApproverDAO } from './approver/approver.dao';
+import { DemandTypeStatusIndexDAO } from './demand-type-stataus-index/demand-type-stataus-index.dao';
 
 import { EnvService } from '../service/env.service';
 
@@ -45,6 +47,7 @@ const DOAList = [
   FileDAO,
   DemandNodeDAO,
   ApproverDAO,
+  DemandTypeStatusIndexDAO,
 ];
 
 @Global()
@@ -74,6 +77,7 @@ const DOAList = [
       FileEntity,
       DemandNodeEntity,
       ApproverEntity,
+      DemandTypeStatusIndexEntity,
     ]),
   ],
   providers: [

@@ -10,8 +10,8 @@ export class DemandTypeDAO {
     private readonly demandTypeRepository: Repository<DemandTypeEntity>,
   ) {}
 
-  public async save(demandTyoe: DemandTypeEntity): Promise<DemandTypeEntity> {
-    return this.demandTypeRepository.save(demandTyoe);
+  public async save(demandType: DemandTypeEntity): Promise<DemandTypeEntity> {
+    return this.demandTypeRepository.save(demandType);
   }
 
   public async findAll(): Promise<DemandTypeEntity[]> {
