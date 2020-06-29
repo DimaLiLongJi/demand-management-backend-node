@@ -334,6 +334,7 @@ INSERT INTO `permission` VALUES (12, '我的需求', '/home/self-demand-list', N
 INSERT INTO `permission` VALUES (13, '需求看板', '/home/kanban', NULL, '2020-03-28 14:52:26.599895', '2020-05-27 10:27:14.000000', 1, '1', 3, NULL);
 INSERT INTO `permission` VALUES (14, '创建用户', NULL, 'create-user', '2020-05-30 11:43:27.538248', '2020-05-30 11:43:27.538248', 1, '2', 1, NULL);
 INSERT INTO `permission` VALUES (15, '编辑用户', NULL, 'update-user', '2020-05-30 11:44:18.417886', '2020-05-30 11:44:18.417886', 1, '2', 1, NULL);
+INSERT INTO `permission` VALUES (16, '重置用户密码', NULL, 'reset-user-password', '2020-06-29 14:13:28.637000', '2020-06-29 14:13:28.637000', 1, '2', 1, NULL);
 COMMIT;
 
 -- ----------------------------
@@ -446,6 +447,7 @@ INSERT INTO `user_permission` VALUES (1, 12);
 INSERT INTO `user_permission` VALUES (1, 13);
 INSERT INTO `user_permission` VALUES (1, 14);
 INSERT INTO `user_permission` VALUES (1, 15);
+INSERT INTO `user_permission` VALUES (1, 16);
 COMMIT;
 
 -- ----------------------------
