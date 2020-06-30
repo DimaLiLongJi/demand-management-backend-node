@@ -92,4 +92,24 @@ export class DemandStatusController {
       };
     }
   }
+
+  @Post(':id')
+  public async update2(
+    @Param('id') id: number,
+    @Body() demandStatus?: DemandStatus,
+  ): Promise<IResponse> {
+    try {
+      const demandStatusInfo = await this.demandStatusService.update(id, demandStatus);
+      return {
+        success: true,
+        message: '更新需求状态成功',
+        data: demandStatusInfo,
+      };
+    } catch (e) {
+      return {
+        success: false,
+        message: e,
+      };
+    }
+  }
 }

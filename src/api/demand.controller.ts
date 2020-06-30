@@ -161,6 +161,26 @@ export class DemandController {
     }
   }
 
+  @Post('/pass/:id')
+  public async pass2(
+    @Param('id') id: number,
+    @Req() req: Request,
+  ) {
+    const demand: Demand = {
+      creator: Number(req.headers.authId),
+      isPending: DemandPending.notPending,
+    };
+    try {
+      return await this.demandService.update(id, demand);
+    } catch (e) {
+      console.error('deleteFile error =>>', e);
+      return {
+        success: false,
+        message: e,
+      };
+    }
+  }
+
   @Put('/deleteFile')
   public async deleteFile(
     @Body() body: { demandId: number, fileId: number },
@@ -177,8 +197,41 @@ export class DemandController {
     }
   }
 
+  @Post('/deleteFile')
+  public async deleteFile2(
+    @Body() body: { demandId: number, fileId: number },
+    @Req() req: Request,
+  ) {
+    try {
+      return await this.demandService.deleteFile(body.demandId, body.fileId, Number(req.headers.authId));
+    } catch (e) {
+      console.error('deleteFile error =>>', e);
+      return {
+        success: false,
+        message: e,
+      };
+    }
+  }
+
   @Put(':id')
   public async update(
+    @Param('id') id: number,
+    @Req() req: Request,
+    @Body() demand?: Demand,
+  ): Promise<IResponse> {
+    try {
+      demand.creator = Number(req.headers.authId);
+      return await this.demandService.update(id, demand);
+    } catch (e) {
+      return {
+        success: false,
+        message: e,
+      };
+    }
+  }
+
+  @Post(':id')
+  public async update2(
     @Param('id') id: number,
     @Req() req: Request,
     @Body() demand?: Demand,

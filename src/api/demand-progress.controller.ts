@@ -91,6 +91,23 @@ export class DemandProgressController {
     }
   }
 
+  @Post(':id')
+  public async update2(
+    @Param('id') id: number,
+    @Req() req: Request,
+    @Body() demandProgress?: DemandProgress,
+  ): Promise<IResponse> {
+    try {
+      if (demandProgress) demandProgress.creator = Number(req.headers.authId);
+      return await this.demandProgressService.update(id, demandProgress);
+    } catch (e) {
+      return {
+        success: false,
+        message: e,
+      };
+    }
+  }
+
   @Delete(':id')
   public async delete(
     @Param('id') id: number,

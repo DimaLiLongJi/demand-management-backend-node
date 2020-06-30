@@ -92,4 +92,24 @@ export class DemandTypeController {
       };
     }
   }
+
+  @Post(':id')
+  public async update2(
+    @Param('id') id: number,
+    @Body() demandType?: DemandType,
+  ): Promise<IResponse> {
+    try {
+      const demandTypeInfo = await this.demandTypeService.update(id, demandType);
+      return {
+        success: true,
+        message: '更新需求类型成功',
+        data: demandTypeInfo,
+      };
+    } catch (e) {
+      return {
+        success: false,
+        message: e,
+      };
+    }
+  }
 }

@@ -89,4 +89,19 @@ export class PermissionController {
     }
   }
 
+  @Post(':id')
+  public async update2(
+    @Param('id') id: number,
+    @Body() permission?: Permission,
+  ): Promise<IResponse> {
+    try {
+      return await this.permissionService.update(id, permission);
+    } catch (e) {
+      return {
+        success: false,
+        message: e,
+      };
+    }
+  }
+
 }

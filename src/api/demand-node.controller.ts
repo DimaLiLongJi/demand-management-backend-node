@@ -91,6 +91,23 @@ export class DemandNodeController {
     }
   }
 
+  @Post(':id')
+  public async update2(
+    @Param('id') id: number,
+    @Req() req: Request,
+    @Body() demandNode?: DemandNode,
+  ): Promise<IResponse> {
+    try {
+      if (demandNode) demandNode.creator = Number(req.headers.authId);
+      return await this.demandNodeService.update(id, demandNode);
+    } catch (e) {
+      return {
+        success: false,
+        message: e,
+      };
+    }
+  }
+
   @Delete(':id')
   public async delete(
     @Param('id') id: number,

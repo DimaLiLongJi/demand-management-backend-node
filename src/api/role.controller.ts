@@ -87,4 +87,19 @@ export class RoleController {
       };
     }
   }
+
+  @Post(':id')
+  public async update2(
+    @Param('id') id: number,
+    @Body() role?: Role,
+  ): Promise<IResponse> {
+    try {
+      return await this.roleService.update(id, role);
+    } catch (e) {
+      return {
+        success: false,
+        message: e,
+      };
+    }
+  }
 }

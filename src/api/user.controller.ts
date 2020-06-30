@@ -131,8 +131,40 @@ export class UserController {
     }
   }
 
+  @Post('/:id')
+  public async update2(
+    @Param('id') id: number,
+    @Req() req: Request,
+    @Body() user?: User,
+  ): Promise<IResponse> {
+    try {
+      user.creator = Number(req.headers.authId);
+      return await this.userService.update(id, user);
+    } catch (e) {
+      return {
+        success: false,
+        message: e,
+      };
+    }
+  }
+
   @Put('/:id/password')
   public async updatePassword(
+    @Param('id') id: number,
+    @Body('password') password: string,
+  ): Promise<IResponse> {
+    try {
+      return await this.userService.updatePassword(id, password);
+    } catch (e) {
+      return {
+        success: false,
+        message: e,
+      };
+    }
+  }
+
+  @Post('/:id/password')
+  public async updatePassword2(
     @Param('id') id: number,
     @Body('password') password: string,
   ): Promise<IResponse> {
