@@ -8,6 +8,8 @@ import { IResponse } from '../types';
 export interface IAuthPayload {
   email: string;
   mobile: string;
+  iat?: number; // 签发时间（iat）
+  exp?: string; // 过期时间（exp）
 }
 
 @Injectable()
