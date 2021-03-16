@@ -16,7 +16,7 @@ export class DemandTypeDAO {
 
   public async findAll(): Promise<DemandTypeEntity[]> {
     return this.demandTypeRepository.find({
-      relations: ['creator', 'permissionList'],
+      relations: ['creator', 'demandStatusList'],
       order: {
         id: 'ASC',
       },
