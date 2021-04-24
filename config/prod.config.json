@@ -4,9 +4,9 @@
   "jwtSecret": "1AGy4bCUoECDZ4yI6h8DxHDwgj84EqStMNyab8nPChQ=",
   "database": {
     "host": "localhost",
-    "port": 3306,
-    "username": "mossdbuser",
-    "password": "yP@6M5s^#U",
+    "port": 52013,
+    "username": "root",
+    "password": "ZYzx#2020",
     "database": "demand"
   },
   "email": {
